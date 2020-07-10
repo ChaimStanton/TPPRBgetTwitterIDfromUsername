@@ -15,9 +15,14 @@ def getID(name):
 
 if __name__ == "__main__":
     
-    txtFile = open("usernames.txt", "r")
+    print(getID("ChaimStanton"))
+
+    try:
+        txtFile = open("usernames.txt", "r")
         for name in txtFile:
             print(name.rstrip("\n"))
             # print(name[:-2])
             user = api.get_user(name)
             print(user.id_str)
+    except FileNotFoundError:
+        print("File not found")
